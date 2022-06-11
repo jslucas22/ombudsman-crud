@@ -15,10 +15,10 @@ This project is based on the [Spring Boot](http://projects.spring.io/spring-boot
 ## Functionality of each page 🛠️
 - Index ( Ajax GET Request )
 - Manifestation ( Insert, Update, Delete Select & Excel export) 
-- Protesters ( Insert, Update, Delete Select )
-- Protests ( Insert, Update, Delete Select )
-- Types of Manifestation ( Insert, Update, Delete Select )
-- Tags ( Insert, Update, Delete Select )
+- Protesters ( Insert, Update, Delete & Select )
+- Protests ( Insert, Update, Delete & Select )
+- Types of Manifestation ( Insert, Update, Delete & Select )
+- Tags ( Insert, Update, Delete & Select )
 
 
 ## Database configuration ⚙️
