@@ -2,6 +2,8 @@
 
 A simple crud web system for a company's ombudsman department
 
+![](/src/doc/web-system.gif)
+
 ## What's inside 🤔
 This project is based on the [Spring Boot](http://projects.spring.io/spring-boot/) project and uses these packages :
 - Jar Packaging
