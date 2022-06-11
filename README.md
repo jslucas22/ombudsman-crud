@@ -1,4 +1,4 @@
-# ouvidoria-crud
+# ombudsman-crud
 
 A simple crud web system for a company's ombudsman department
 
