@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.com" xmlns:form="http://www.springframework.org/tags/form">
+<head>
+    <meta charset="UTF-8">
+    <title>ZEXCORP - Atualização de Manifestçaão</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+    <script type="text/javascript" defer src="/js/manifestacaoDropDownLoader.js"></script>
+    <script type="text/javascript" defer src="/js/manifestacaoDropDownLoaderUpdate.js"></script>
+    <script type="text/javascript" defer src="/js/manifestacaoValidator.js"></script>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand" href="#" style="color:white">ZEXCORP</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/" style="color:white">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownCadastros" role="button"
+                   data-toggle="dropdown" style="color:white" aria-haspopup="true" aria-expanded="false">
+                    Cadastros
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="../cadastrar_manifestacao">Manifestação</a>
+                    <a class="dropdown-item" href="../cadastrar_manifestante">Manifestante</a>
+                    <a class="dropdown-item" href="../cadastrar_manifestado">Manifestado</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../cadastrar_tipo_manifestacao">Tipo Manifestação</a>
+                    <a class="dropdown-item" href="../cadastrar_tags">Tags</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownConsultas" role="button"
+                   data-toggle="dropdown" style="color:white" aria-haspopup="true" aria-expanded="false">
+                    Consultas
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="../consultar_manifestacao">Manifestação</a>
+                    <a class="dropdown-item" href="../consultar_manifestante">Manifestante</a>
+                    <a class="dropdown-item" href="../consultar_manifestado">Manifestado</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../consultar_tipo_manifestacao">Tipo Manifestação</a>
+                    <a class="dropdown-item" href="../consultar_tags">Tags</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<form th:action="@{/atualizar_manifestacao}" method="post" th:object="${manifestacaoModel}">
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col-12 col-lg-9 col-xl-7">
+                    <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                        <div class="card-body p-4 p-md-5">
+                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Cadastro de Manifestação</h3>
+                            <label id="erro" class="alert alert-danger"></label>
+                            <form>
+
+                                <div class="row">
+                                    <div class="col-md-12 mb-6 pb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="manifestante">Manifestante</label>
+                                            <input type="hidden" th:value="${manifestacaoModel.id}" name="id">
+                                            <select class="form-select form-control form-control-lg"
+                                                    aria-label="Default select example"
+                                                    id="manifestante" name="manifestante">
+                                                <option th:each="m : ${manifestacaoModel}"
+                                                        th:value="${m.manifestante.id}"
+                                                        th:text="${m.manifestante.nome} + ' ' + ${m.manifestante.sobrenome}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 mb-6 pb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="manifestado">Manifestado</label>
+                                            <select class="form-select form-control form-control-lg"
+                                                    aria-label="Default select example"
+                                                    id="manifestado" name="manifestado">
+                                                <option th:each="m : ${manifestacaoModel}"
+                                                        th:value="${m.manifestado.id}"
+                                                        th:text="${m.manifestado.nome} + ' ' + ${m.manifestado.sobrenome}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 mb-6 pb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="tipoManifestacao">Tipo de
+                                                Manifestação</label>
+                                            <select class="form-select form-control form-control-lg"
+                                                    aria-label="Default select example"
+                                                    id="tipoManifestacao" name="tipoManifestacao">
+                                                <option th:each="m : ${manifestacaoModel}"
+                                                        th:value="${m.tipoManifestacao.id}"
+                                                        th:text="${m.tipoManifestacao.tipo}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 mb-6 pb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="tag">Tag</label>
+                                            <select class="form-select form-control form-control-lg"
+                                                    aria-label="Default select example"
+                                                    id="tag" name="tag">
+                                                <option th:each="m : ${manifestacaoModel}"
+                                                        th:value="${m.tag.id}"
+                                                        th:text="${m.tag.tipo}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 mb-6 pb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="manifestacao">Manifestação</label>
+                                            <textarea id="manifestacao" name="manifestacao"
+                                                      th:text="${manifestacaoModel.manifestacao}"
+                                                      class="form-control form-control-lg"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-end pt-3">
+                                    <button type="reset" class="btn btn-danger ms-2 mr-2">Limpar</button>
+                                    <input type="submit" class="btn btn-primary ms-2"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+</body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>

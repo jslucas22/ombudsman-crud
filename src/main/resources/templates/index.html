@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.com">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+    <title>ZEXCORP - Ouvidoria</title>
+
+    <script type="text/javascript" defer src="/js/main.js"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand" href="#" style="color:white">ZEXCORP</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/" style="color:white">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownCadastros" role="button"
+                   data-toggle="dropdown" style="color:white" aria-haspopup="true" aria-expanded="false">
+                    Cadastros
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="cadastrar_manifestacao">Manifestação</a>
+                    <a class="dropdown-item" href="cadastrar_manifestante">Manifestante</a>
+                    <a class="dropdown-item" href="cadastrar_manifestado">Manifestado</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="cadastrar_tipo_manifestacao">Tipo Manifestação</a>
+                    <a class="dropdown-item" href="cadastrar_tags">Tags</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownConsultas" role="button"
+                   data-toggle="dropdown" style="color:white" aria-haspopup="true" aria-expanded="false">
+                    Consultas
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="consultar_manifestacao">Manifestação</a>
+                    <a class="dropdown-item" href="consultar_manifestante">Manifestante</a>
+                    <a class="dropdown-item" href="consultar_manifestado">Manifestado</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="consultar_tipo_manifestacao">Tipo Manifestação</a>
+                    <a class="dropdown-item" href="consultar_tags">Tags</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<section class="col d-flex justify-content-center">
+    <div class="row p-5 mt-5">
+        <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+            <div class="card-header">Manifestações</div>
+            <div class="card-body">
+                <p class="card-text" id="manifestacoes"></p>
+            </div>
+        </div>
+    </div>
+    <div class="row p-5 mt-5">
+        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+            <div class="card-header">Manifestantes</div>
+            <div class="card-body">
+                <p class="card-text" id="manifestantes"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-5 mt-5">
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+            <div class="card-header">Manifestado</div>
+            <div class="card-body">
+                <p class="card-text" id="manifestados"></p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>

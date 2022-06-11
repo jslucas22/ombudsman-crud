@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>ZEXCORP - Consulta de Tipo de Manifestação</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand" href="#" style="color:white">ZEXCORP</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/" style="color:white">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownCadastros" role="button"
+                   data-toggle="dropdown" style="color:white" aria-haspopup="true" aria-expanded="false">
+                    Cadastros
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="cadastrar_manifestacao">Manifestação</a>
+                    <a class="dropdown-item" href="cadastrar_manifestante">Manifestante</a>
+                    <a class="dropdown-item" href="cadastrar_manifestado">Manifestado</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="cadastrar_tipo_manifestacao">Tipo Manifestação</a>
+                    <a class="dropdown-item" href="cadastrar_tags">Tags</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownConsultas" role="button"
+                   data-toggle="dropdown" style="color:white" aria-haspopup="true" aria-expanded="false">
+                    Consultas
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="consultar_manifestacao">Manifestação</a>
+                    <a class="dropdown-item" href="consultar_manifestante">Manifestante</a>
+                    <a class="dropdown-item" href="consultar_manifestado">Manifestado</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="consultar_tipo_manifestacao">Tipo Manifestação</a>
+                    <a class="dropdown-item" href="consultar_tags">Tags</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div th:if=${session.msg}>
+
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <label th:text="${session.msg}"></label>
+    </div>
+
+    <th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+</div>
+
+<div class="container p-5">
+    <table class="table table-striped">
+        <thead class="bg-dark text-white">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Ação</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="m : ${tipoManifestacao}">
+            <th th:text="${m.id}">1</th>
+            <td th:text="${m.tipo}"></td>
+            <td th:text="${m.descricao}"></td>
+            <td><a class="btn btn-sm btn-primary"
+                   th:href="@{/alterar_tipo_manifestacao/{id}(id=${m.id})}">Alterar</a> <a
+                    class="btn btn-sm btn-danger"
+                    th:href="@{/remover_tipo_manifestacao/{id}(id=${m.id})}">Remover</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
